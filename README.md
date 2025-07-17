@@ -1,6 +1,13 @@
 # template
 template repo for future projects
 
+## npm scripts
+"build": starts up the production environment,
+"start": starts up the development environment,
+"deploy": deploys the code to github pages,
+"initialize": installs dev dependencies for images, styling, and html
+
+<!-- ignore (only for educational purposes) -->
 ## npm setup for development
 <!-- In Terminal -->
 1. npm init -y
@@ -17,10 +24,4 @@ template repo for future projects
 7. npm install --save-dev webpack-dev-server
 <!-- start server -->
 8. npx webpack serve
-
-## npm scripts
-"build": starts up the production environment,
-"start": starts up the development environment,
-"deploy": deploys the code to github pages
-
 
