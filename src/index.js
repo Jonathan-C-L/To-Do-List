@@ -8,3 +8,4 @@ import { Sidebar } from "./components/sidebar.js";
    console.log('Looks like we are in development mode!');
  }
 
+Sidebar();

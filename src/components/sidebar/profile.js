@@ -13,11 +13,17 @@ class User {
     }
 }
 
+const Jon = new User("Jon", "./profile-pic/profile.jpg");
+
 function Profile(){
     // reset incase there's an update
     profileContainer.innerHTML = "";
 
-    const profilePic = CreateProfilePicture()
+    const profilePic = CreateProfilePicture(Jon.picture);
+    const userName = CreateUserName(Jon.name);
+
+    profileContainer.appendChild(profilePic);
+    profileContainer.appendChild(userName);
 }
 function CreateProfilePicture(picture){
     const newProfilePic = document.createElement("div");
