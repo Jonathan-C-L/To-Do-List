@@ -1,11 +1,12 @@
-# template
-template repo for future projects
-
-## npm scripts
+# npm scripts
 "build": starts up the production environment,
 "start": starts up the development environment,
 "deploy": deploys the code to github pages,
 "initialize": installs dev dependencies for images, styling, and html
+
+# tests
+<!-- add tests in the future -->
+
 
 <!-- ignore (only for educational purposes) -->
 ## npm setup for development
