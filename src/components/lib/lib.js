@@ -20,3 +20,6 @@ function CreateContainer(){
 
     return container;
 }
+function CreateNewDiv(){
+    return document.createElement("div");
+}
