@@ -1,4 +1,4 @@
-export { ResetContainer, addGlobalEventListener, CreateContainer };
+export { ResetContainer, addGlobalEventListener, CreateNewContainer, CreateNewDiv };
 
 function ResetContainer(containerID){
     const container = document.querySelector(containerID);
@@ -14,12 +14,20 @@ function addGlobalEventListener(type, selector, parent = document, callback){
         }
     });
 }
-function CreateContainer(){
+function CreateNewContainer(name, items){
     const container = document.createElement("div");
     container.classList.add("container");
+    container.classList.add(name);
+
+    items.forEach(element => {
+        container.appendChild(element);
+    });
 
     return container;
 }
-function CreateNewDiv(){
-    return document.createElement("div");
+function CreateNewDiv(name){
+    const newDiv = document.createElement("div");
+    newDiv.classList.add(name);
+
+    return newDiv;
 }

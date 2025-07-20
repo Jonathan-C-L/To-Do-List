@@ -1,5 +1,5 @@
 export { Profile };
-import { CreateContainer } from "../lib/lib.js"
+import { CreateNewContainer, CreateNewDiv } from "../lib/lib.js"
 import profilePicture from "./profile-pic/profile.jpg";
 import defaultPicture from "./profile-pic/default.jpg";
 
@@ -18,17 +18,13 @@ class User {
 const Jon = new User("Jonathan Le", profilePicture);
 
 function Profile(){
-    const profileContainer = CreateContainer();
-    profileContainer.classList.add("profile");
-    const profilePic = CreateProfilePicture(Jon.picture);
-    const userName = CreateUserName(Jon.name);
-    profileContainer.appendChild(profilePic);
-    profileContainer.appendChild(userName);
+    const userInfo = [CreateProfilePicture(Jon.picture), CreateUserName(Jon.name)];
+    const profileContainer = CreateNewContainer("profile", userInfo);
+
     sidebar.appendChild(profileContainer);
 }
 function CreateProfilePicture(picture){
-    const newProfilePic = document.createElement("div");
-    newProfilePic.classList.add("profile-pic");
+    const newProfilePic = CreateNewDiv("profile-pic");
     // chooses default image if user does not provide one
     if(picture != undefined){
         newProfilePic.style.backgroundImage = `url(${picture})`;
@@ -40,8 +36,7 @@ function CreateProfilePicture(picture){
     return newProfilePic;
 }
 function CreateUserName(name){
-    const newUserName = document.createElement("div");
-    newUserName.classList.add("username");
+    const newUserName = CreateNewDiv("username")
     newUserName.textContent = name;    
 
     return newUserName;
