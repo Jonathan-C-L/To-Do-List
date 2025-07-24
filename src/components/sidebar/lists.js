@@ -10,15 +10,12 @@ class List{
         this.todo.push({item, date, description, complete});
     }
     showListItems(){
-        this.todo.forEach(e =>{
-            console.log(e.item);
-            console.log(e.date);
-            console.log(e.description);
-            console.log(e.complete);
+        this.todo.forEach((e, index) =>{
+            console.log(e);
+            console.log(index);
         });
     }
 }
-
 
 function Lists(){
     const test = new List("Programming");
@@ -26,3 +23,12 @@ function Lists(){
     test.showListItems();
 
 }
+function CreateNewList(category, todo){
+    const newList = new List(category);
+    todo.forEach(e =>{
+        // create new todo item and append into list
+        CreateNewDiv(e);
+    });
+    // append entire list 
+}
+
