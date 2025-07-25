@@ -1,9 +1,10 @@
-import { CreateNewContainer, CreateNewDiv } from "../lib/lib.js";
-export { RenderLists };
+import { createNewContainer, createNewDiv } from "../lib/lib.js";
+export { renderLists };
 
+// data store for list objects
 const lists = [];
-const sidebar = document.querySelector(".sidebar");
 
+// list class
 class List{
     constructor(category){
         this.category = category;
@@ -21,26 +22,26 @@ class List{
     }
 }
 
+// test data for the list objects and data
 const list1 = new List("Personal");
 const list2 = new List("Volleyball");
 const list3 = new List("School");
 
 lists.push(list1, list2, list3);
 
-function RenderLists(){
+// functions
+function renderLists(){
     const items = [];
 
     lists.forEach(e =>{
-        let item = CreateNewDiv(e.category);
-        const category = document.createElement("h1");
+        let item = createNewDiv(e.category);
+        const category = document.createElement("div");
         category.textContent = e.category;
         item.appendChild(category);
         items.push(item);
     });
 
-    const title = document.createElement("h1");
-    title.textContent = "LISTS";
-    const listContainer = CreateNewContainer("LISTS", items);
-    sidebar.appendChild(title);
-    sidebar.appendChild(listContainer);
+    
+    
+    return createNewContainer("lists", items);
 }

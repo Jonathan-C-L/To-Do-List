@@ -1,37 +1,36 @@
-import { CreateNewContainer, CreateNewDiv } from "../lib/lib.js";
-export { TimeRange };
+import { createNewContainer, createNewDiv } from "../lib/lib.js";
+export { renderTimeRange };
 
-const sidebar = document.querySelector(".sidebar");
-
-function TimeRange(){
-    const times = [CreateDay(), CreateWeek(), CreateMonth()];
-    const timeRange = CreateNewContainer("time-range", times);
-    sidebar.appendChild(timeRange);
+// functions
+function renderTimeRange(){
+    const times = [createDay(), createWeek(), createMonth()];
+    const timeRange = createNewContainer("time-range", times);
+    return timeRange;
 }
-function CreateDay(){
-    const day = CreateNewDiv("day");
-    const title = document.createElement("h1");
-    const count = CreateNewDiv("count");
+function createDay(){
+    const day = createNewDiv("day");
+    const title = document.createElement("div");
+    const count = createNewDiv("count");
     title.textContent = "Today";
     day.appendChild(title);
     day.appendChild(count);
 
     return day;
 }
-function CreateWeek(){
-    const week = CreateNewDiv("week");
-    const title = document.createElement("h1");
-    const count = CreateNewDiv("count");
+function createWeek(){
+    const week = createNewDiv("week");
+    const title = document.createElement("div");
+    const count = createNewDiv("count");
     title.textContent = "7 Days";
     week.appendChild(title);
     week.appendChild(count);
 
     return week;
 }
-function CreateMonth(){
-    const month = CreateNewDiv("month");
-    const title = document.createElement("h1");
-    const count = CreateNewDiv("count");
+function createMonth(){
+    const month = createNewDiv("month");
+    const title = document.createElement("div");
+    const count = createNewDiv("count");
     title.textContent = "Month";
     month.appendChild(title);
     month.appendChild(count);
