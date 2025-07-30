@@ -41,7 +41,5 @@ function renderLists(){
         items.push(item);
     });
 
-    
-    
     return createNewContainer("lists", items);
 }

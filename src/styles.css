@@ -3,6 +3,12 @@
     padding: 0;
     margin: 0;
     --spacing: 1rem;
+    --sidebarWidth: 2fr;
+    --contentWidth: 7fr;
+    --addListWidth: 1fr;
+    --headerHeight: 10vh;
+    --contentHeight: 45vh;
+    --titleSize: x-large;
 }
 /* general */
 .container{
@@ -14,13 +20,12 @@
 /* grid */
 body{
     display: grid;
-    grid-template-columns: 2fr 7fr 1fr;
-    grid-template-rows: 10vh 45vh 45vh;
+    grid-template-columns: var(--sidebarWidth) var(--contentWidth) var(--addListWidth);
+    grid-template-rows: var(--headerHeight) var(--contentHeight) var(--contentHeight);
     grid-template-areas: 
         "sidebar header header"
         "sidebar content content"
         "sidebar content content";
-    gap: var(--spacing);
 }
 header{
     grid-area: header;
@@ -31,13 +36,15 @@ header{
     height: 100%;
     grid-area: content;
     border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .sidebar{
     width: 100%;
     height: 100%;
     grid-area: sidebar;
-    font-size: x-large;
-    margin: 0 0 0 var(--spacing);
+    font-size: var(--titleSize);
     border: 1px solid black;
 }
 /* sidebar */
@@ -58,5 +65,42 @@ header{
 .lists, .time-range{
     flex-direction: column;
 }
+.time-range>div>div:hover{
+    color: grey;
+}
+.time-range>div>div:active{
+    font-weight: bolder;
+    color: black;
+}
+/* header */
+header{
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
 
-
+/* new list button */
+.add-new-list{
+    --buttonWidth: 15%;
+    --buttonHeight: 100%;
+    --radius: 2rem;
+    margin: 0;
+    grid-area: content;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    width: var(--buttonWidth);
+    height: calc(var(--buttonHeight) - 2 * var(--spacing)) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.plus-sign{
+    --imageSize: 5rem;
+    width: var(--imageSize);
+    height: var(--imageSize);
+    opacity: 0.28;
+}
+.add-new-list:hover{
+    box-shadow: 5px 5px 15px grey;
+}
