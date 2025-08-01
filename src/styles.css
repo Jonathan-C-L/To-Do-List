@@ -7,7 +7,7 @@
     --contentWidth: 7fr;
     --addListWidth: 1fr;
     --headerHeight: 10vh;
-    --contentHeight: 45vh;
+    --contentHeight: 44vh;
     --titleSize: x-large;
 }
 /* general */
@@ -94,6 +94,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 5px 5px 7px grey;
 }
 .plus-sign{
     --imageSize: 5rem;
@@ -102,5 +103,5 @@ header{
     opacity: 0.28;
 }
 .add-new-list:hover{
-    box-shadow: 5px 5px 15px grey;
+    box-shadow: 5px 5px 15px black;
 }

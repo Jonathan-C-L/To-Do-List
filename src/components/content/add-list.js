@@ -1,7 +1,7 @@
 import { createNewContainer, createNewDiv } from "../lib/lib.js";
 import plusSign from "../../assets/plus.png";
 
-export { newListButton };
+export { newListButton, modalDialog };
 
 function newListButton(){
     const listButton = document.createElement("img");
@@ -12,4 +12,12 @@ function newListButton(){
     const newListButton = createNewContainer("add-new-list", images);
 
     return newListButton;
+}
+function modalDialog(){
+    const modal = document.createElement("dialog");
+    const title = document.createElement("h1");
+    title.textContent = "Title";
+    modal.appendChild(title);
+
+    return modal;
 }
