@@ -17,6 +17,8 @@ function modalDialog(){
     const modal = document.createElement("dialog");
     const title = document.createElement("h1");
     const cancel = document.createElement("button");
+    const add = document.createElement("button");
+    add.classList.add("add");
     cancel.classList.add("cancel");
     title.textContent = "Add List Item";    
     cancel.textContent = "Cancel";
