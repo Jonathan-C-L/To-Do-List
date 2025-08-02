@@ -16,8 +16,15 @@ function newListButton(){
 function modalDialog(){
     const modal = document.createElement("dialog");
     const title = document.createElement("h1");
-    title.textContent = "Title";
+    const cancel = document.createElement("button");
+    cancel.classList.add("cancel");
+    title.textContent = "Add List Item";    
+    cancel.textContent = "Cancel";
+
+
+
     modal.appendChild(title);
+    modal.appendChild(cancel);
 
     return modal;
 }

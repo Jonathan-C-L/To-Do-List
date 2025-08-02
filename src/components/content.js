@@ -14,8 +14,15 @@ function Content(){
     eventHandlers();
 }
 function eventHandlers(){
-    const parent = document.querySelector(".content");
+    const content = document.querySelector(".content");
     const modal = document.querySelector("dialog");
+    const modalClose = document.querySelector("dialog button");
 
-    addGlobalEventListener("click", ".add-new-list", parent, (e)=>{modal.showModal()});
+    addGlobalEventListener("click", ".add-new-list", content, (e)=>{modal.showModal();});
+    addGlobalEventListener("click", "dialog button", modal, (e)=>{
+        if(e.target.classList.contains("cancel")){
+            modal.close(); 
+        } 
+
+    });
 }
