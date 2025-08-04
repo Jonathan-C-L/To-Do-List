@@ -2,7 +2,7 @@ import { renderProfile } from "./sidebar/profile.js";
 import { renderTimeRange } from "./sidebar/time-range.js";
 import { renderLists } from "./sidebar/lists.js";
 import { createNewDiv, addGlobalEventListener } from "./lib/lib.js";
-import { changeHeader, loadHeader } from "./header.js"
+import { changeHeader, Header } from "./header.js"
 export { Sidebar };
 
 const sidebar = document.querySelector(".sidebar");

@@ -1,9 +1,6 @@
 import { createNewContainer, createNewDiv } from "../lib/lib.js";
 export { renderLists };
 
-// data store for list objects
-const lists = [];
-
 // list class
 class List{
     constructor(category){
@@ -27,19 +24,19 @@ const list1 = new List("Personal");
 const list2 = new List("Volleyball");
 const list3 = new List("School");
 
-lists.push(list1, list2, list3);
+// data store for list objects
+const lists = [list1, list2, list3];
 
 // functions
 function renderLists(){
-    const items = [];
-
+    let listElements = [];
     lists.forEach(e =>{
-        let item = createNewDiv(e.category);
-        const category = document.createElement("div");
+        let newList = createNewDiv(e.category);
+        const category = createNewDiv("category");
         category.textContent = e.category;
-        item.appendChild(category);
-        items.push(item);
+        newList.appendChild(category);
+        listElements.push(newList);
     });
 
-    return createNewContainer("lists", items);
+    return createNewContainer("lists", listElements);
 }

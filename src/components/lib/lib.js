@@ -5,7 +5,7 @@ function resetContainer(containerID){
 
     container.innerHTML = "";
 }
-// event delegation function
+// event delegation function -> applies to parent container and use 'e' to selector specific elements within
 function addGlobalEventListener(type, selector, parent = document, callback){
 
     parent.addEventListener(type, e =>{
@@ -14,20 +14,25 @@ function addGlobalEventListener(type, selector, parent = document, callback){
         }
     });
 }
-function createNewContainer(name, items){
+function createNewContainer(name, elements){
     const container = document.createElement("div");
     container.classList.add("container");
     container.classList.add(name);
 
-    items.forEach(element => {
-        container.appendChild(element);
-    });
+    if(Array.isArray(elements)){
+        elements.forEach(e =>{
+            container.appendChild(e);
+        });
+    }
 
     return container;
 }
-function createNewDiv(name){
+// using the rest parameter (...) to treat an indefinite number of arguments as an array
+function createNewDiv(...names){
     const newDiv = document.createElement("div");
-    newDiv.classList.add(name);
+    for(let name of names){
+        newDiv.classList.add(name);
+    };
 
     return newDiv;
 }

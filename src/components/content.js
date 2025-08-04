@@ -16,13 +16,14 @@ function Content(){
 function eventHandlers(){
     const content = document.querySelector(".content");
     const modal = document.querySelector("dialog");
-    const modalClose = document.querySelector("dialog button");
 
     addGlobalEventListener("click", ".add-new-list", content, (e)=>{modal.showModal();});
     addGlobalEventListener("click", "dialog button", modal, (e)=>{
-        if(e.target.classList.contains("cancel")){
+        if(buttonCheck(e, "cancel")){
             modal.close(); 
         } 
-
     });
+}
+function buttonCheck(e, selector){
+    return e.target.classList.contains(selector);
 }
