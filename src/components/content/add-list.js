@@ -1,4 +1,4 @@
-import { createNewContainer, createNewDiv } from "../lib/lib.js";
+import { createNewContainer, createNewElement } from "../lib/lib.js";
 import plusSign from "../../assets/plus.png";
 
 export { newListButton, modalDialog };

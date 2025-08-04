@@ -1,4 +1,4 @@
-import { createNewContainer, createNewDiv } from "../lib/lib.js";
+import { createNewContainer, createNewElement } from "../lib/lib.js";
 export { renderLists };
 
 // list class
@@ -31,8 +31,8 @@ const lists = [list1, list2, list3];
 function renderLists(){
     let listElements = [];
     lists.forEach(e =>{
-        let newList = createNewDiv(e.category);
-        const category = createNewDiv("category");
+        let newList = createNewElement("div", e.category);
+        const category = createNewElement("div", "category");
         category.textContent = e.category;
         newList.appendChild(category);
         listElements.push(newList);

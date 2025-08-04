@@ -1,4 +1,4 @@
-export { resetContainer, addGlobalEventListener, createNewContainer, createNewDiv };
+export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement };
 
 function resetContainer(containerID){
     const container = document.querySelector(containerID);
@@ -19,6 +19,7 @@ function createNewContainer(name, elements){
     container.classList.add("container");
     container.classList.add(name);
 
+    // check to see if an nodes are in an array to iterate through
     if(Array.isArray(elements)){
         elements.forEach(e =>{
             container.appendChild(e);
@@ -28,11 +29,11 @@ function createNewContainer(name, elements){
     return container;
 }
 // using the rest parameter (...) to treat an indefinite number of arguments as an array
-function createNewDiv(...names){
-    const newDiv = document.createElement("div");
+function createNewElement(type, ...names){
+    const newElement = document.createElement(type);
     for(let name of names){
-        newDiv.classList.add(name);
+        newElement.classList.add(name);
     };
 
-    return newDiv;
+    return newElement;
 }

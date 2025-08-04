@@ -1,4 +1,4 @@
-import { createNewContainer, createNewDiv } from "../lib/lib.js";
+import { createNewContainer, createNewElement } from "../lib/lib.js";
 export { renderTimeRange };
 
 // functions
@@ -8,7 +8,7 @@ function renderTimeRange(){
     return timeRange;
 }
 function createDay(){
-    const day = createNewDiv("day");
+    const day = createNewElement("div", "day");
     const title = document.createElement("div");
     title.textContent = "Today";
     day.appendChild(title);
@@ -16,7 +16,7 @@ function createDay(){
     return day;
 }
 function createWeek(){
-    const week = createNewDiv("week");
+    const week = createNewElement("div", "week");
     const title = document.createElement("div");
     title.textContent = "7 Days";
     week.appendChild(title);
@@ -24,7 +24,7 @@ function createWeek(){
     return week;
 }
 function createMonth(){
-    const month = createNewDiv("month");
+    const month = createNewElement("div", "month");
     const title = document.createElement("div");
     title.textContent = "Month";
     month.appendChild(title);

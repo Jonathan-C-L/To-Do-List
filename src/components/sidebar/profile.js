@@ -1,5 +1,5 @@
 export { renderProfile };
-import { createNewContainer, createNewDiv } from "../lib/lib.js"
+import { createNewContainer, createNewElement } from "../lib/lib.js"
 import profilePicture from "./profile-pic/profile.jpg";
 import defaultPicture from "./profile-pic/default.jpg";
 
@@ -21,7 +21,7 @@ function renderProfile(){
     return profileContainer;
 }
 function createProfilePicture(picture){
-    const newProfilePic = createNewDiv("profile-pic");
+    const newProfilePic = createNewElement("div", "profile-pic");
     // chooses default image if user does not provide one
     if(picture != undefined){
         newProfilePic.style.backgroundImage = `url(${picture})`;
@@ -33,7 +33,7 @@ function createProfilePicture(picture){
     return newProfilePic;
 }
 function createUserName(name){
-    const newUserName = createNewDiv("username")
+    const newUserName = createNewElement("div", "username")
     newUserName.textContent = name;    
 
     return newUserName;
