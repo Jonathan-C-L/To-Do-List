@@ -15,15 +15,22 @@ function Content(){
 }
 function eventHandlers(){
     const content = document.querySelector(".content");
-    const modal = document.querySelector("dialog");
-
-    addGlobalEventListener("click", ".add-new-list", content, (e)=>{modal.showModal();});
+    const modal = document.querySelector(".new-list-modal");
+    // content event listener - contains lists and add new list button
+    addGlobalEventListener("click", ".add-new-list", content, (e)=>{
+        modal.showModal();
+    });
+    
+    // dialog event listener for all buttons within the modal dialog
     addGlobalEventListener("click", "dialog button", modal, (e)=>{
-        if(buttonCheck(e, "cancel")){
+        if(buttonCheck(e, "modal-cancel")){
             modal.close(); 
         } 
     });
 }
 function buttonCheck(e, selector){
     return e.target.classList.contains(selector);
+}
+function newTodo(){
+
 }

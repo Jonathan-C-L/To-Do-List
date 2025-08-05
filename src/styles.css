@@ -9,6 +9,7 @@
     --headerHeight: 10vh;
     --contentHeight: 44vh;
     --titleSize: x-large;
+    --radius: 2rem;
 }
 /* general */
 .container{
@@ -84,7 +85,6 @@ header{
 .add-new-list{
     --buttonWidth: 15%;
     --buttonHeight: 100%;
-    --radius: 2rem;
     margin: 0;
     grid-area: content;
     border: 1px solid black;
@@ -108,6 +108,16 @@ header{
 dialog{
     width: 50vw;
     height: 50vh;
+    padding: calc(2 * var(--spacing));
     justify-self: center;
     align-self: center;
+    border-radius: var(--radius);
+}
+:modal{
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "info info"
+        "add add"
+        "cancel submit";
 }
