@@ -101,6 +101,8 @@ header{
     width: var(--imageSize);
     height: var(--imageSize);
     opacity: 0.28;
+    /* this fixes the deadzone for the add new list event listener */
+    pointer-events: none;
 }
 .add-new-list:hover{
     box-shadow: 5px 5px 15px black;

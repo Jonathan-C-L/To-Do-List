@@ -17,8 +17,10 @@ function eventHandlers(){
     const content = document.querySelector(".content");
     const modal = document.querySelector(".new-list-modal");
     // content event listener - contains lists and add new list button
-    addGlobalEventListener("click", ".add-new-list", content, (e)=>{
-        modal.showModal();
+    addGlobalEventListener("click", ".content div, button, button>img", content, (e)=>{
+        if(buttonCheck(e, "add-new-list")){
+            modal.showModal();
+        }
     });
     
     // dialog event listener for all buttons within the modal dialog

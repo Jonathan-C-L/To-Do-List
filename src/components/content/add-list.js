@@ -4,12 +4,12 @@ import plusSign from "../../assets/plus.png";
 export { newListButton, modalDialog };
 
 function newListButton(){
-    const listButton = document.createElement("img");
+    // const listButton = document.createElement("img");
+    const listButton = createNewElement("img", "plus-sign");
     listButton.src = plusSign;
-    listButton.classList.add("plus-sign");
-    const images = [listButton];
 
-    const newListButton = createNewContainer("add-new-list", images);
+    const newListButton = createNewElement("button", "add-new-list");
+    newListButton.appendChild(listButton);
 
     return newListButton;
 }
