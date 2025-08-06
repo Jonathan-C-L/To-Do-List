@@ -13,27 +13,29 @@ function newListButton(){
     return newListButton;
 }
 function modalDialog(){
+    // element creation
     const modal = createNewElement("dialog", "new-list-modal");
-    const title = createNewElement("h1", "modal-title");
+    const title = createNewElement("div", "modal-title");
     const cancel = createNewElement("button", "modal-cancel");
-    const todoTitle = createNewElement("h3", "todo-title");
-    todoTitle.textContent = "To Do:";
+    const todoTitle = createNewElement("div", "todo-title");
     const todoInput = createNewElement("input", "input", "todo");
-    todoInput.type = "text";
-    const notesTitle = createNewElement("h3", "todo-title");
-    notesTitle.textContent = "Notes:";
+    const notesTitle = createNewElement("div", "todo-title");
     const notesInput = createNewElement("textarea", "input", "notes");
-    const dateTitle = createNewElement("h3", "todo-title");
-    dateTitle.textContent = "Date:";
+    const dateTitle = createNewElement("div", "todo-title");
     const dateInput = createNewElement("input", "input", "date");
-    dateInput.type = "date";
-    // const info = createNewElement("input", "todo-info");
-    // info.type = "text";
-
     const submit = createNewElement("button", "modal-submit");
+
+    // input type declarations
+    dateInput.type = "date";
+    todoInput.type = "text";
+
+    // text inputs
+    todoTitle.textContent = "To Do:";
+    notesTitle.textContent = "Notes:";
+    dateTitle.textContent = "Date:";
     title.textContent = "Create List";  
-    submit.textContent = "Submit";  
     cancel.textContent = "Cancel";
+    submit.textContent = "Submit";  
 
     const info = createNewContainer("todo-info", [todoTitle, todoInput, notesTitle, notesInput, dateTitle, dateInput]);
 
