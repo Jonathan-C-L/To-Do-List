@@ -14,7 +14,6 @@
 /* general */
 .container{
     display: flex;
-    width: 100%;
     margin: var(--spacing) 0 var(--spacing) 0;
 }
 
@@ -107,6 +106,7 @@ header{
 .add-new-list:hover{
     box-shadow: 5px 5px 15px black;
 }
+/* modal dialog styling */
 dialog{
     width: 50vw;
     height: 50vh;
@@ -120,6 +120,50 @@ dialog{
     grid-template-areas: 
         "title title"
         "info info"
-        "add add"
         "cancel submit";
+    grid-template-rows: 1fr 6fr 1fr;
+    gap: var(--spacing);
+}
+.modal-title{
+    grid-area: title;
+    align-self: center;
+}
+.todo-info{
+    grid-area: info;
+    padding: 0 var(--spacing) 0 var(--spacing);
+}
+.modal-add{
+    grid-area: add;
+    width: 15rem;
+    justify-self: center;
+    align-self: center;
+}
+.todo-info, .modal-add{
+    height: 2rem;
+}
+.modal-cancel, .modal-submit{
+    height: 3rem;
+    width: 10rem;
+}
+.modal-cancel{
+    justify-self: end;
+}
+.todo-title{
+    align-self: left;
+}
+.notes{
+    height: 50%;
+}
+.date, .todo{
+    height: 10%;
+}
+/* prevents resizing of the notes */
+textarea{
+    resize: none;
+}
+.todo-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: calc(100% - var(--spacing)) ;
 }

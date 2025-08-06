@@ -19,13 +19,13 @@ class List{
     }
 }
 
-// test data for the list objects and data
+// test data for the list objects and data for a future version with list categories
 const list1 = new List("Personal");
 const list2 = new List("Volleyball");
 const list3 = new List("School");
 
 // data store for list objects
-const lists = [list1, list2, list3];
+const lists = [list1];
 
 // functions
 function renderLists(){

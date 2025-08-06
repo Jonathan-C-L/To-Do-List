@@ -4,7 +4,6 @@ import plusSign from "../../assets/plus.png";
 export { newListButton, modalDialog };
 
 function newListButton(){
-    // const listButton = document.createElement("img");
     const listButton = createNewElement("img", "plus-sign");
     listButton.src = plusSign;
 
@@ -15,17 +14,30 @@ function newListButton(){
 }
 function modalDialog(){
     const modal = createNewElement("dialog", "new-list-modal");
-    const title = createNewElement("h1", "title");
+    const title = createNewElement("h1", "modal-title");
     const cancel = createNewElement("button", "modal-cancel");
-    const add = createNewElement("button", "modal-add");
-    const textInput = createNewElement("input", "todo-name");
-    const submit = createNewElement("button", "modal-submit")
-    add.textContent = "Add New Item";
+    const todoTitle = createNewElement("h3", "todo-title");
+    todoTitle.textContent = "To Do:";
+    const todoInput = createNewElement("input", "input", "todo");
+    todoInput.type = "text";
+    const notesTitle = createNewElement("h3", "todo-title");
+    notesTitle.textContent = "Notes:";
+    const notesInput = createNewElement("textarea", "input", "notes");
+    const dateTitle = createNewElement("h3", "todo-title");
+    dateTitle.textContent = "Date:";
+    const dateInput = createNewElement("input", "input", "date");
+    dateInput.type = "date";
+    // const info = createNewElement("input", "todo-info");
+    // info.type = "text";
+
+    const submit = createNewElement("button", "modal-submit");
     title.textContent = "Create List";  
     submit.textContent = "Submit";  
     cancel.textContent = "Cancel";
 
-    appendAll(modal, title, textInput, add, cancel, submit);
+    const info = createNewContainer("todo-info", [todoTitle, todoInput, notesTitle, notesInput, dateTitle, dateInput]);
+
+    appendAll(modal, title, info, cancel, submit);
 
     return modal;
 }
