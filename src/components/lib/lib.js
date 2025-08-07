@@ -1,4 +1,4 @@
-export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement };
+export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement, appendAll };
 
 function resetContainer(containerID){
     const container = document.querySelector(containerID);
@@ -14,15 +14,16 @@ function addGlobalEventListener(type, selector, parent = document, callback){
         }
     });
 }
-function createNewContainer(name, elements){
+// creates a new container and iterates through the array of child nodes
+function createNewContainer(name, children){
     const container = document.createElement("div");
     container.classList.add("container");
     container.classList.add(name);
 
     // check to see if an nodes are in an array to iterate through
-    if(Array.isArray(elements)){
-        elements.forEach(e =>{
-            container.appendChild(e);
+    if(Array.isArray(children)){
+        children.forEach(child =>{
+            container.appendChild(child);
         });
     }
 
@@ -36,4 +37,10 @@ function createNewElement(type, ...names){
     };
 
     return newElement;
+}
+// appends all nodes into the parent node
+function appendAll(parent, ...children){
+    for(let child of children){
+        parent.appendChild(child);
+    }
 }

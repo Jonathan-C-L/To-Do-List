@@ -1,4 +1,4 @@
-import { createNewContainer, createNewElement } from "../lib/lib.js";
+import { createNewContainer, createNewElement, appendAll } from "../lib/lib.js";
 import plusSign from "../../assets/plus.png";
 
 export { newListButton, modalDialog };
@@ -13,6 +13,15 @@ function newListButton(){
     return newListButton;
 }
 function modalDialog(){
+    const modal = createModalElements()
+
+    appendAll(modal.dialog, modal.title, modal.info, modal.cancel, modal.submit);
+
+    return modal.dialog;
+}
+
+// abstracted away the dom element creations and manipulations and returned the elements in an object
+function createModalElements(){
     // element creation
     const modal = createNewElement("dialog", "new-list-modal");
     const title = createNewElement("div", "modal-title");
@@ -39,13 +48,11 @@ function modalDialog(){
 
     const info = createNewContainer("todo-info", [todoTitle, todoInput, notesTitle, notesInput, dateTitle, dateInput]);
 
-    appendAll(modal, title, info, cancel, submit);
-
-    return modal;
-}
-// could be a lib function for adding all child nodes to a parent
-function appendAll(parent, ...children){
-    for(let child of children){
-        parent.appendChild(child);
-    }
+    return {
+        dialog: modal,
+        title: title,
+        info: info,
+        cancel: cancel,
+        submit: submit,
+    };
 }
