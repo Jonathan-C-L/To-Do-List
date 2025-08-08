@@ -3,7 +3,9 @@ import { addGlobalEventListener } from "./lib/lib.js";
 
 export { Content };
 
+// dom elements
 const content = document.querySelector(".content");
+
 
 function Content(){
     const listButton = newListButton();
@@ -28,11 +30,22 @@ function eventHandlers(){
         if(buttonCheck(e, "modal-cancel")){
             modal.close(); 
         } 
+        if(buttonCheck(e, "modal-submit")){
+            createTodo();
+            modal.close();
+        }
     });
 }
+// helper function
 function buttonCheck(e, selector){
     return e.target.classList.contains(selector);
 }
-function newTodo(){
+function createTodo(){
+    const todo = document.querySelector(".todo");
+    const notes = document.querySelector(".notes");
+    const date = document.querySelector(".date");
 
+    localStorage.setItem("todo", todo.value);
+    localStorage.setItem("notes", notes.value);
+    localStorage.setItem("date", date.value);
 }

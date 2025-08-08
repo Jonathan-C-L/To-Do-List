@@ -13,7 +13,7 @@ function newListButton(){
     return newListButton;
 }
 function modalDialog(){
-    const modal = createModalElements()
+    const modal = createModalElements();
 
     appendAll(modal.dialog, modal.title, modal.info, modal.cancel, modal.submit);
 
