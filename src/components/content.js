@@ -31,6 +31,7 @@ function eventHandlers(){
             modal.close(); 
         } 
         if(buttonCheck(e, "modal-submit")){
+
             createTodo();
             modal.close();
         }
@@ -45,7 +46,10 @@ function createTodo(){
     const notes = document.querySelector(".notes");
     const date = document.querySelector(".date");
 
-    localStorage.setItem("todo", todo.value);
-    localStorage.setItem("notes", notes.value);
-    localStorage.setItem("date", date.value);
+    localStorage.setItem(`todo${localStorage.length}`, `${todo.value}, ${notes.value}, ${date.value}`);
+
+    // reset after submission
+    todo.value = "";
+    notes.value = "";
+    date.value = "";
 }
