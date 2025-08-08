@@ -1,5 +1,6 @@
 import { newListButton, modalDialog } from "./content/add-list.js";
 import { addGlobalEventListener } from "./lib/lib.js";
+import { todoItems } from "./content/todo-lists.js"; 
 
 export { Content };
 
@@ -13,6 +14,7 @@ function Content(){
     const modal = modalDialog();
     content.appendChild(modal);
 
+    todoItems();
     eventHandlers();
 }
 function eventHandlers(){
