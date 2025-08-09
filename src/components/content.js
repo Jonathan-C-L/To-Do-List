@@ -4,9 +4,8 @@ import { todoItems } from "./content/todo-lists.js";
 
 export { Content };
 
-// dom elements
+// dom element
 const content = document.querySelector(".content");
-
 
 function Content(){
     const listButton = newListButton();
@@ -48,7 +47,14 @@ function createTodo(){
     const notes = document.querySelector(".notes");
     const date = document.querySelector(".date");
 
-    localStorage.setItem(`todo${localStorage.length}`, `${todo.value}, ${notes.value}, ${date.value}`);
+    // new to do list item
+    const newTodo = {
+        todo: todo.value,
+        notes: notes.value,
+        date: date.value
+    };
+
+    localStorage.setItem(`Todo #${localStorage.length + 1}`, JSON.stringify(newTodo));
 
     // reset after submission
     todo.value = "";

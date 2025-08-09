@@ -27,11 +27,11 @@ function createModalElements(){
     const title = createNewElement("div", "modal-title");
     const cancel = createNewElement("button", "modal-cancel");
     const todoTitle = createNewElement("div", "todo-title");
-    const todoInput = createNewElement("input", "input", "todo");
+    const todoInput = createNewElement("input", "todo-input");
     const notesTitle = createNewElement("div", "todo-title");
-    const notesInput = createNewElement("textarea", "input", "notes");
+    const notesInput = createNewElement("textarea", "notes-input");
     const dateTitle = createNewElement("div", "todo-title");
-    const dateInput = createNewElement("input", "input", "date");
+    const dateInput = createNewElement("input", "date-input");
     const submit = createNewElement("button", "modal-submit");
 
     // input type declarations

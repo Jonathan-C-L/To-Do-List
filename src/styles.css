@@ -131,15 +131,11 @@ dialog{
     grid-area: info;
     padding: 0 var(--spacing) 0 var(--spacing);
     margin: 0;
-}
-.modal-add{
-    grid-area: add;
-    width: 15rem;
-    justify-self: center;
-    align-self: center;
-}
-.todo-info, .modal-add{
     height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
 }
 .modal-cancel, .modal-submit{
     height: 3rem;
@@ -159,27 +155,19 @@ dialog{
     align-self: left;
     font-weight: 600;
 }
-.notes{
+.notes-input{
     height: 50%;
+    border: 2px solid black;
+    border-radius: calc(var(--spacing) / 2);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
-.date, .todo{
+.date-input, .todo-input{
     height: 10%;
+    border: 2px solid black;
+    border-radius: calc(var(--spacing) / 2);
+    padding: 0 0.5rem 0 0.5rem;
 }
 /* prevents resizing of the notes */
 textarea{
     resize: none;
-}
-.todo-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 100%;
-}
-.todo, .date{
-    border-radius: calc(var(--spacing) / 2);
-    padding: 0 0.5rem 0 0.5rem;
-}
-.notes{
-    border-radius: calc(var(--spacing) / 2);
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }
