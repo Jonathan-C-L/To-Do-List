@@ -10,7 +10,8 @@ function renderTodoCards(){
         cardArray.push(newTodo);
     }
 
-    return createNewContainer("todo-cards", cardArray);
+    // pick up here***********
+    return cardArray; 
 
 }
 function createTodoCard(todoObject){
