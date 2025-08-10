@@ -1,8 +1,8 @@
 import { createNewContainer, createNewElement } from "../lib/lib.js";
 
-export { renderTodoCards, createTodo };
+export { todoCards, createTodo };
 
-function renderTodoCards(){
+function todoCards(){
     let cardArray = [];
     
     for(let i = 1; i <= localStorage.length; i++){
@@ -10,7 +10,6 @@ function renderTodoCards(){
         cardArray.push(newTodo);
     }
 
-    // pick up here***********
     return cardArray; 
 
 }

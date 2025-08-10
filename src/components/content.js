@@ -1,6 +1,6 @@
 import { newListButton, modalDialog } from "./content/add-list.js";
 import { addGlobalEventListener, createNewContainer, resetContainer } from "./lib/lib.js";
-import { renderTodoCards, createTodo } from "./content/todo-lists.js";
+import { todoCards, createTodo } from "./content/todo-lists.js";
 
 export { Content };
 
@@ -8,10 +8,11 @@ export { Content };
 const content = document.querySelector(".content");
 
 function Content(){
-    const todoCards = renderTodoCards();
-    const cardContainer = createNewContainer("cards", [todoCards]);
+    // create and render the initial todo list
+    const todoArray = todoCards();
+    const cardContainer = createNewContainer("todo-cards", todoArray);
     content.appendChild(cardContainer);
-    
+    // create and render the add button and modal dialog
     const listButton = newListButton();
     content.appendChild(listButton);
     const modal = modalDialog();
@@ -35,13 +36,9 @@ function eventHandlers(){
             modal.close(); 
         } 
         if(buttonCheck(e, "modal-submit")){
-
             createTodo();
-            resetContainer(".cards");
-
-            const todoCards = renderTodoCards();
-            const cardContainer = document.querySelector(".cards");
-            cardContainer.appendChild(todoCards);
+            resetContainer(".todo-cards");
+            renderTodoCards();
 
             modal.close();
         }
@@ -50,4 +47,16 @@ function eventHandlers(){
 // helper function
 function buttonCheck(e, selector){
     return e.target.classList.contains(selector);
+}
+function renderTodoCards(){
+    const cardContainer = document.querySelector(".todo-cards");
+    const todoArray = todoCards();
+    
+    // only tries to render when the container has been created
+    if(cardContainer == null)
+        return;
+
+    todoArray.forEach(e => {
+        cardContainer.appendChild(e);
+    });
 }
