@@ -1,6 +1,6 @@
 import { newListButton, modalDialog } from "./content/add-list.js";
-import { addGlobalEventListener } from "./lib/lib.js";
-import { todoItems } from "./content/todo-lists.js"; 
+import { addGlobalEventListener, createNewContainer, resetContainer } from "./lib/lib.js";
+import { renderTodoCards, createTodo } from "./content/todo-lists.js";
 
 export { Content };
 
@@ -8,12 +8,15 @@ export { Content };
 const content = document.querySelector(".content");
 
 function Content(){
+    const todoCards = renderTodoCards();
+    const cardContainer = createNewContainer("cards", [todoCards]);
+    content.appendChild(cardContainer);
+    
     const listButton = newListButton();
     content.appendChild(listButton);
     const modal = modalDialog();
     content.appendChild(modal);
 
-    todoItems();
     eventHandlers();
 }
 function eventHandlers(){
@@ -34,6 +37,12 @@ function eventHandlers(){
         if(buttonCheck(e, "modal-submit")){
 
             createTodo();
+            resetContainer(".cards");
+
+            const todoCards = renderTodoCards();
+            const cardContainer = document.querySelector(".cards");
+            cardContainer.appendChild(todoCards);
+
             modal.close();
         }
     });
@@ -41,23 +50,4 @@ function eventHandlers(){
 // helper function
 function buttonCheck(e, selector){
     return e.target.classList.contains(selector);
-}
-function createTodo(){
-    const todo = document.querySelector(".todo");
-    const notes = document.querySelector(".notes");
-    const date = document.querySelector(".date");
-
-    // new to do list item
-    const newTodo = {
-        todo: todo.value,
-        notes: notes.value,
-        date: date.value
-    };
-
-    localStorage.setItem(`Todo #${localStorage.length + 1}`, JSON.stringify(newTodo));
-
-    // reset after submission
-    todo.value = "";
-    notes.value = "";
-    date.value = "";
 }

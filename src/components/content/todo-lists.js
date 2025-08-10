@@ -1,14 +1,19 @@
 import { createNewContainer, createNewElement } from "../lib/lib.js";
 
-export { todoItems };
+export { renderTodoCards, createTodo };
 
-function todoItems(){
-    const newTodo = createTodoItem(JSON.parse(localStorage.getItem("Todo #1")));
+function renderTodoCards(){
+    let cardArray = [];
+    
+    for(let i = 1; i <= localStorage.length; i++){
+        const newTodo = createTodoCard(JSON.parse(localStorage.getItem(`Todo #${i}`)));
+        cardArray.push(newTodo);
+    }
 
-    const content = document.querySelector(".content");
-    content.appendChild(newTodo);
+    return createNewContainer("todo-cards", cardArray);
+
 }
-function createTodoItem(todoObject){
+function createTodoCard(todoObject){
     const todo = createNewElement("div", "todo");
     const notes = createNewElement("div", "notes");
     const date = createNewElement("div", "date");
@@ -18,5 +23,24 @@ function createTodoItem(todoObject){
     notes.textContent = todoObject.notes;
     date.textContent = todoObject.date;
 
-    return createNewContainer("todo-item", [todo, notes, date]);   
+    return createNewContainer("todo-card", [todo, notes, date]);   
+}
+function createTodo(){
+    const todo = document.querySelector(".todo-input");
+    const notes = document.querySelector(".notes-input");
+    const date = document.querySelector(".date-input");
+
+    // new to do list object
+    const newTodo = {
+        todo: todo.value,
+        notes: notes.value,
+        date: date.value
+    };
+
+    localStorage.setItem(`Todo #${localStorage.length + 1}`, JSON.stringify(newTodo));
+
+    // reset after submission
+    todo.value = "";
+    notes.value = "";
+    date.value = "";
 }

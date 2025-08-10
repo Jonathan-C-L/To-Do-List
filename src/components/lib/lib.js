@@ -3,7 +3,13 @@ export { resetContainer, addGlobalEventListener, createNewContainer, createNewEl
 function resetContainer(containerID){
     const container = document.querySelector(containerID);
 
+    // only clears if the dom element exists
+    if(container == null){
+        return;
+    }
+
     container.innerHTML = "";
+
 }
 // event delegation function -> applies to parent container and use 'e' to selector specific elements within
 function addGlobalEventListener(type, selector, parent = document, callback){
