@@ -29,6 +29,10 @@ body{
 }
 header{
     grid-area: header;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
 }
 .content{
     width: 100%;
@@ -68,13 +72,6 @@ header{
 .time-range>div>div:active{
     font-weight: bolder;
     color: black;
-}
-/* header */
-header{
-    font-size: 3rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
 }
 
 /* new list button */
@@ -180,6 +177,7 @@ textarea{
     overflow-y: scroll;
 }
 .todo-card{
+    width: 96%;
     height: fit-content;
     margin: var(--spacing) 0 0 0;
     padding: 1rem;
@@ -187,4 +185,9 @@ textarea{
     flex-direction: column;
     border: 1px solid black;
     border-radius: calc(var(--radius) / 2) ;
+    box-shadow: 5px 5px 7px grey;
+
+}
+.todo-card:hover{
+    box-shadow: 5px 5px 15px black;
 }
