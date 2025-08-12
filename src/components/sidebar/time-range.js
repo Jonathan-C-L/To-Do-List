@@ -8,26 +8,20 @@ function renderTimeRange(){
     return timeRange;
 }
 function createDay(){
-    const day = createNewElement("div", "day");
-    const title = document.createElement("div");
-    title.textContent = "Today";
-    day.appendChild(title);
+    const day = createNewElement("button", "day");
+    day.textContent = "Today";
 
     return day;
 }
 function createWeek(){
-    const week = createNewElement("div", "week");
-    const title = document.createElement("div");
-    title.textContent = "7 Days";
-    week.appendChild(title);
+    const week = createNewElement("button", "week");
+    week.textContent = "7 Days";
 
     return week;
 }
 function createMonth(){
-    const month = createNewElement("div", "month");
-    const title = document.createElement("div");
-    title.textContent = "Month";
-    month.appendChild(title);
+    const month = createNewElement("button", "month");
+    month.textContent = "Month";
 
     return month;
 }

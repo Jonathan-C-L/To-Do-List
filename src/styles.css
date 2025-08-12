@@ -1,13 +1,11 @@
 /* reset */
 :root{
+    background-image: url(./assets/background.jpg);
+    background-position: center;
+    background-size: cover;
     padding: 0;
     margin: 0;
     --spacing: 1rem;
-    --sidebarWidth: 2fr;
-    --contentWidth: 7fr;
-    --addListWidth: 1fr;
-    --headerHeight: 10vh;
-    --contentHeight: 44vh;
     --titleSize: x-large;
     --radius: 2rem;
 }
@@ -16,9 +14,13 @@
     display: flex;
     margin: var(--spacing) 0 var(--spacing) 0;
 }
-
 /* grid */
 body{
+    --addListWidth: 1fr;
+    --contentWidth: 7fr;
+    --sidebarWidth: 1.5fr;
+    --headerHeight: 10vh;
+    --contentHeight: 44vh;
     display: grid;
     grid-template-columns: var(--sidebarWidth) var(--contentWidth) var(--addListWidth);
     grid-template-rows: var(--headerHeight) var(--contentHeight) var(--contentHeight);
@@ -33,6 +35,8 @@ header{
     font-weight: bold;
     display: flex;
     align-items: center;
+    width: calc(100% - var(--spacing));
+    align-items: self-end;
 }
 .content{
     width: 100%;
@@ -43,10 +47,11 @@ header{
     justify-content: space-between;
 }
 .sidebar{
-    width: 100%;
+    width: calc(100% - margin-right);
     height: 100%;
     grid-area: sidebar;
     font-size: var(--titleSize);
+    margin-right: var(--spacing);
 }
 /* sidebar */
 .profile-pic{
@@ -63,25 +68,28 @@ header{
 .list-title{
     font-weight: bold;
 }
+.time-range{
+    height: 15%;
+    justify-content: space-around;
+}
 .lists, .time-range{
     flex-direction: column;
 }
-.time-range>div>div:hover{
-    color: grey;
-}
-.time-range>div>div:active{
-    font-weight: bolder;
-    color: black;
+.time-range>button{
+    background-color: transparent;
+    font-size: var(--titleSize);
+    border: none;
+    height: 100%;
 }
 
 /* new list button */
 .add-new-list{
     --buttonWidth: 15%;
     --buttonHeight: 100%;
-    margin: 0;
+    margin: 0 var(--spacing)  0 var(--spacing);
     grid-area: content;
     border: 1px solid black;
-    border-radius: var(--radius);
+    border-radius: calc(var(--radius) / 2);
     width: var(--buttonWidth);
     height: calc(var(--buttonHeight) - 2 * var(--spacing)) ;
     display: flex;
@@ -171,10 +179,11 @@ textarea{
 /* todo cards */
 .todo-cards{
     width: 100%;
-    height: 100%;
+    height: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    padding: 0 1rem 1rem 1rem;
 }
 .todo-card{
     width: 96%;

@@ -42,7 +42,7 @@ function createModalElements(){
     todoTitle.textContent = "To Do:";
     notesTitle.textContent = "Notes:";
     dateTitle.textContent = "Date:";
-    title.textContent = "Create List";  
+    title.textContent = "New Reminder";  
     cancel.textContent = "Cancel";
     submit.textContent = "Submit";  
 

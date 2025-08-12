@@ -10,7 +10,6 @@ function Sidebar(){
     const profile = renderProfile();
     const timeRange = renderTimeRange();
 
-
     sidebar.appendChild(profile);
     sidebar.appendChild(timeRange);
     
@@ -19,5 +18,7 @@ function Sidebar(){
 function eventHandlers(){
     const parent = document.querySelector(".sidebar");
 
-    addGlobalEventListener("click", ".time-range>div>div", parent, (e)=>{changeHeader(e);});
+    addGlobalEventListener("click", ".time-range>button", parent, (e)=>{
+        changeHeader(e);
+    });
 }
