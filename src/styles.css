@@ -54,6 +54,9 @@ header{
     margin-right: var(--spacing);
 }
 /* sidebar */
+.profile{
+    justify-content: center;
+}
 .profile-pic{
     border: 1px solid grey;
     border-radius: 50%;
@@ -69,7 +72,7 @@ header{
     font-weight: bold;
 }
 .time-range{
-    height: 15%;
+    height: 25%;
     justify-content: space-around;
 }
 .lists, .time-range{
@@ -91,7 +94,7 @@ header{
     border: 1px solid black;
     border-radius: calc(var(--radius) / 2);
     width: var(--buttonWidth);
-    height: calc(var(--buttonHeight) - 2 * var(--spacing)) ;
+    height: calc(var(--buttonHeight) - var(--spacing)) ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,11 +182,35 @@ textarea{
 /* todo cards */
 .todo-cards{
     width: 100%;
+    margin: 0;
     height: calc(100% - 2rem);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
     padding: 0 1rem 1rem 1rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    background-color: white;
+}
+.todo-cards::-webkit-scrollbar {
+    width: 8px;
+}
+    
+.todo-cards::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 1rem;
+}
+
+.todo-cards::-webkit-scrollbar-track-piece:end {
+    margin-bottom: 15px; 
+    background-color: lightgray;
+    border-radius: 1rem;
+}
+
+.todo-cards::-webkit-scrollbar-track-piece:start {
+    margin-top: 15px;
+    background-color: lightgrey;
+    border-radius: 1rem;
 }
 .todo-card{
     width: 96%;

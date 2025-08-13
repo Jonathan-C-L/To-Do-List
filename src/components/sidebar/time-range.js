@@ -3,7 +3,7 @@ export { renderTimeRange };
 
 // functions
 function renderTimeRange(){
-    const times = [createDay(), createWeek(), createMonth()];
+    const times = [createDay(), createWeek(), createMonth(), createAll()];
     const timeRange = createNewContainer("time-range", times);
     return timeRange;
 }
@@ -24,4 +24,10 @@ function createMonth(){
     month.textContent = "Month";
 
     return month;
+}
+function createAll(){
+    const all = createNewElement("button", "all-time-ranges");
+    all.textContent = "All";
+    
+    return all;
 }
