@@ -15,7 +15,7 @@ class User {
 const Jon = new User("Jonathan Le", profilePicture);
 
 function renderProfile(){
-    const userInfo = [createProfilePicture(Jon.picture), createUserName(Jon.name)];
+    const userInfo = [createUserName(Jon.name), createProfilePicture(Jon.picture)];
     const profileContainer = createNewContainer("profile", userInfo);
 
     return profileContainer;

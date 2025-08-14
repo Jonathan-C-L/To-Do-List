@@ -24,7 +24,7 @@ function Content(){
 function eventHandlers(){
     const content = document.querySelector(".content");
     const modal = document.querySelector(".new-list-modal");
-    const timeRange = document.querySelector("header");
+    const filter = document.querySelector(".filter");
 
     // content event listener - contains lists and add new list button
     addGlobalEventListener("click", ".content div, button, button>img", content, (e)=>{
@@ -40,7 +40,7 @@ function eventHandlers(){
         } 
         if(buttonCheck(e, "modal-submit")){
             createTodo();
-            renderTodoCards(timeRange.textContent);
+            renderTodoCards(filter.textContent);
 
             modal.close();
         }

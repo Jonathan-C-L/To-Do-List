@@ -9,7 +9,6 @@ function resetContainer(containerID){
     }
 
     container.innerHTML = "";
-
 }
 // event delegation function -> applies to parent container and use 'e' to selector specific elements within
 function addGlobalEventListener(type, selector, parent = document, callback){

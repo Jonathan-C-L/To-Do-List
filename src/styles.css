@@ -5,6 +5,9 @@
     background-size: cover;
     padding: 0;
     margin: 0;
+    color: grey;
+    letter-spacing: 1px;
+    line-height: 1.2;
     --spacing: 1rem;
     --titleSize: x-large;
     --radius: 2rem;
@@ -29,15 +32,6 @@ body{
         "sidebar content content"
         "sidebar content content";
 }
-header{
-    grid-area: header;
-    font-size: 3rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    width: calc(100% - var(--spacing));
-    align-items: self-end;
-}
 .content{
     width: 100%;
     height: 100%;
@@ -53,20 +47,40 @@ header{
     font-size: var(--titleSize);
     margin-right: var(--spacing);
 }
-/* sidebar */
+/* header */
+header{
+    grid-area: header;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    width: calc(100% - var(--spacing));
+    align-items: self-end;
+    justify-content: space-between;
+    color: darkslategray;
+}
 .profile{
     justify-content: center;
+    margin: 0;
 }
 .profile-pic{
-    border: 1px solid grey;
+    border: 2px solid darkslategray;
     border-radius: 50%;
     padding: 2rem;
     background-size: cover;
-    margin-right: var(--spacing);
+    margin-left: var(--spacing);
 }
 .username{
     align-self: center;
     font-weight: bold;
+}
+/* sidebar */
+.icon{
+    width: 100%;
+    height: 10%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 1rem 0 1rem 0;
 }
 .list-title{
     font-weight: bold;
@@ -83,11 +97,11 @@ header{
     font-size: var(--titleSize);
     border: none;
     height: 100%;
+    color: darkslategray;
 }
 .time-range>button:hover{
     font-weight: bolder;
     text-decoration: underline;
-    color: grey;
 }
 .time-range>button:active{
     font-weight: bold;
@@ -101,7 +115,7 @@ header{
     --buttonHeight: 100%;
     margin: 0 var(--spacing)  0 var(--spacing);
     grid-area: content;
-    border: 1px solid black;
+    border: 2px solid darkslategray;
     border-radius: calc(var(--radius) / 2);
     width: var(--buttonWidth);
     height: calc(var(--buttonHeight) - var(--spacing)) ;
@@ -119,7 +133,7 @@ header{
     pointer-events: none;
 }
 .add-new-list:hover{
-    box-shadow: 5px 5px 15px black;
+    box-shadow: 5px 5px 15px darkslategray;
 }
 /* modal dialog styling */
 dialog{
@@ -138,6 +152,7 @@ dialog{
         "cancel submit";
     grid-template-rows: 1fr 6fr 1fr;
     gap: var(--spacing);
+    color: darkslategray;
 }
 .modal-title{
     grid-area: title;
@@ -159,6 +174,8 @@ dialog{
     height: 3rem;
     width: 10rem;
     border-radius: var(--spacing);
+    border: 2px solid darkslategray;
+    color: darkslategray;
 }
 .modal-cancel:hover, .modal-submit:hover{
     background-color: lightgrey;
@@ -175,15 +192,20 @@ dialog{
 }
 .notes-input{
     height: 50%;
-    border: 2px solid black;
-    border-radius: calc(var(--spacing) / 2);
+    border: 2px solid grey;
+    border-radius: 1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    outline: none;
 }
 .date-input, .todo-input{
     height: 10%;
-    border: 2px solid black;
+    border: 2px solid grey;
     border-radius: calc(var(--spacing) / 2);
     padding: 0 0.5rem 0 0.5rem;
+    outline: none;
+}
+.notes-input:focus, .date-input:focus, .todo-input:focus{
+    border-color: darkslategray;
 }
 /* prevents resizing of the notes */
 textarea{
@@ -198,25 +220,22 @@ textarea{
     flex-direction: column;
     overflow-y: scroll;
     padding: 0 1rem 1rem 1rem;
-    border: 1px solid black;
+    border: 2px solid darkslategray;
     border-radius: 1rem;
     background-color: white;
 }
 .todo-cards::-webkit-scrollbar {
     width: 8px;
-}
-    
+}    
 .todo-cards::-webkit-scrollbar-thumb {
     background-color: grey;
     border-radius: 1rem;
 }
-
 .todo-cards::-webkit-scrollbar-track-piece:end {
     margin-bottom: 15px; 
     background-color: lightgray;
     border-radius: 1rem;
 }
-
 .todo-cards::-webkit-scrollbar-track-piece:start {
     margin-top: 15px;
     background-color: lightgrey;
@@ -230,10 +249,16 @@ textarea{
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    border-radius: calc(var(--radius) / 2) ;
+    border-radius: 0.5rem;
     box-shadow: 5px 5px 7px grey;
-
 }
 .todo-card:hover{
-    box-shadow: 5px 5px 15px black;
+    box-shadow: 5px 5px 15px darkslategray;
+}
+/* indiviudal todo card styling */
+.todo{
+    font-size: 2rem;
+}
+.todo, .notes, .date{
+    margin-bottom: 5px;
 }
