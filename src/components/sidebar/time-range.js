@@ -15,7 +15,7 @@ function createDay(){
 }
 function createWeek(){
     const week = createNewElement("button", "week");
-    week.textContent = "7 Days";
+    week.textContent = "Week";
 
     return week;
 }

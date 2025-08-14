@@ -84,6 +84,16 @@ header{
     border: none;
     height: 100%;
 }
+.time-range>button:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+    color: grey;
+}
+.time-range>button:active{
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
+}
 
 /* new list button */
 .add-new-list{

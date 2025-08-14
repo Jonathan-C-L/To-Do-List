@@ -1,8 +1,9 @@
 import { newListButton, modalDialog } from "./content/add-list.js";
 import { addGlobalEventListener, createNewContainer, resetContainer } from "./lib/lib.js";
 import { todoCards, createTodo } from "./content/todo-lists.js";
+const { isThisWeek, isThisMonth, isToday } = require("date-fns");
 
-export { Content };
+export { Content, renderTodoCards };
 
 // dom element
 const content = document.querySelector(".content");
@@ -23,6 +24,8 @@ function Content(){
 function eventHandlers(){
     const content = document.querySelector(".content");
     const modal = document.querySelector(".new-list-modal");
+    const timeRange = document.querySelector("header");
+
     // content event listener - contains lists and add new list button
     addGlobalEventListener("click", ".content div, button, button>img", content, (e)=>{
         if(buttonCheck(e, "add-new-list")){
@@ -37,26 +40,47 @@ function eventHandlers(){
         } 
         if(buttonCheck(e, "modal-submit")){
             createTodo();
-            resetContainer(".todo-cards");
-            renderTodoCards();
+            renderTodoCards(timeRange.textContent);
 
             modal.close();
         }
     });
 }
-// helper function
+// helper function to check the selected button
 function buttonCheck(e, selector){
     return e.target.classList.contains(selector);
 }
-function renderTodoCards(){
+function renderTodoCards(selectedTimeRange){
     const cardContainer = document.querySelector(".todo-cards");
     const todoArray = todoCards();
+
+    // reset the parent container to repopulate
+    resetContainer(".todo-cards");
     
-    // only tries to render when the container has been created
+    // guard clause to ensure container has been created first
     if(cardContainer == null)
         return;
 
-    todoArray.forEach(e => {
-        cardContainer.appendChild(e);
+    todoArray.forEach((e, index)=> {
+        const todo = JSON.parse(localStorage.getItem(`Todo #${index+1}`));
+        let date = todo.date;
+
+        switch(selectedTimeRange){
+            case "Today":
+                if(isToday(date))
+                    cardContainer.appendChild(e);
+                break;
+            case "Week":
+                if(isThisWeek(date))
+                    cardContainer.appendChild(e);
+                break;
+            case "Month":
+                if(isThisMonth(date))
+                    cardContainer.appendChild(e);
+                break;
+            default:
+                cardContainer.appendChild(e);
+                break;
+        }
     });
 }

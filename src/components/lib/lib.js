@@ -1,4 +1,4 @@
-export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement, appendAll };
+export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement, appendAll};
 
 function resetContainer(containerID){
     const container = document.querySelector(containerID);
