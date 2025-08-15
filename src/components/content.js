@@ -1,6 +1,6 @@
 import { newListButton, modalDialog } from "./content/add-list.js";
 import { addGlobalEventListener, createNewContainer, resetContainer } from "./lib/lib.js";
-import { todoCards, createTodo } from "./content/todo-lists.js";
+import { todoCards, createTodo, removeTodo } from "./content/todo-lists.js";
 const { isThisWeek, isThisMonth, isToday } = require("date-fns");
 
 export { Content, renderTodoCards };
@@ -25,6 +25,7 @@ function eventHandlers(){
     const content = document.querySelector(".content");
     const modal = document.querySelector(".new-list-modal");
     const filter = document.querySelector(".filter");
+    const todoList = document.querySelector(".todo-cards");
 
     // content event listener - contains lists and add new list button
     addGlobalEventListener("click", ".content div, button, button>img", content, (e)=>{
@@ -45,6 +46,13 @@ function eventHandlers(){
             modal.close();
         }
     });
+    // removes todo item when clicked
+    addGlobalEventListener("click", ".todo-card", todoList, (e)=>{
+        removeTodo(e.target.id);
+        renderTodoCards(filter.textContent);
+        // console.log(e);
+        // console.log(localStorage.key(e.target.id))
+    });
 }
 // helper function to check the selected button
 function buttonCheck(e, selector){
@@ -62,7 +70,7 @@ function renderTodoCards(selectedTimeRange){
         return;
 
     todoArray.forEach((e, index)=> {
-        const todo = JSON.parse(localStorage.getItem(`Todo #${index+1}`));
+        const todo = JSON.parse(localStorage.getItem(localStorage.key(index)));
         let date = todo.date;
 
         switch(selectedTimeRange){

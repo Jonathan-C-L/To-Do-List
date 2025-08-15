@@ -20,10 +20,12 @@ function addGlobalEventListener(type, selector, parent = document, callback){
     });
 }
 // creates a new container and iterates through the array of child nodes
-function createNewContainer(name, children){
+function createNewContainer(name, children, id){
     const container = document.createElement("div");
     container.classList.add("container");
     container.classList.add(name);
+    // optional
+    container.setAttribute("id", id);
 
     // check to see if an nodes are in an array to iterate through
     if(Array.isArray(children)){

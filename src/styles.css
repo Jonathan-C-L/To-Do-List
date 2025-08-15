@@ -261,4 +261,5 @@ textarea{
 }
 .todo, .notes, .date{
     margin-bottom: 5px;
+    pointer-events: none;
 }
