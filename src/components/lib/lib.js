@@ -1,4 +1,4 @@
-export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement, appendAll};
+export { resetContainer, addGlobalEventListener, createNewContainer, createNewElement, appendAll, generateRandomNumber};
 
 function resetContainer(containerID){
     const container = document.querySelector(containerID);
@@ -50,4 +50,8 @@ function appendAll(parent, ...children){
     for(let child of children){
         parent.appendChild(child);
     }
+}
+//generates random number between min(inclusive) and max(exclusive)
+function generateRandomNumber(min = 0, max = 1){
+    return Math.floor(Math.random()*(max-min))+min;
 }

@@ -1,4 +1,4 @@
-import { createNewContainer, createNewElement } from "../lib/lib.js";
+import { createNewContainer, createNewElement, generateRandomNumber } from "../lib/lib.js";
 
 export { todoCards, createTodo, removeTodo };
 
@@ -46,14 +46,11 @@ function createTodo(){
 function removeTodo(keyNumber){
     let temp = [];
     for(let i = 0; i < localStorage.length; i++){
-        if(i == keyNumber)
-            localStorage.removeItem(`Todo #${i}`);
-        /* LAST WORKED ON PROBLEM HERE */
-        temp.push(localStorage.getItem(`Todo #${i}`));
-
+        if(i != keyNumber)
+            temp.push(localStorage.getItem(`Todo #${i}`));
     }
     localStorage.clear();
-    temp.forEach((e, index)=>{
-        localStorage.setItem(`Todo #${index}`, e);
-    });
+    for(let i = 0; i < temp.length; i++){
+        localStorage.setItem(`Todo #${i}`, temp[i]);
+    }
 }

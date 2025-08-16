@@ -50,8 +50,7 @@ function eventHandlers(){
     addGlobalEventListener("click", ".todo-card", todoList, (e)=>{
         removeTodo(e.target.id);
         renderTodoCards(filter.textContent);
-        // console.log(e);
-        // console.log(localStorage.key(e.target.id))
+        // console.log(e.target.id);
     });
 }
 // helper function to check the selected button
